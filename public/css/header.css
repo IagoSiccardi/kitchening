@@ -1,8 +1,39 @@
+@keyframes rotacion {
+    0% {
+        -webkit-transform: rotate3d(0, 0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg);
+
+    }   
+
+    25% {
+        -webkit-transform: rotate3d(0, 0, 1, 90deg);
+        transform: rotate3d(0, 0, 1, 90deg);
+    }
+
+    50% {
+        -webkit-transform: rotate3d(0, 0, 1, 180deg);
+        transform: rotate3d(0, 0, 1, 180deg);
+    }
+
+    75% {
+
+        -webkit-transform: rotate3d(0, 0, 1, 270deg);
+        transform: rotate3d(0, 0, 1, 270deg);
+
+    }
+
+    100% {
+        -webkit-transform: rotate3d(0, 0, 1, 360deg);
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
+
 
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 header .logo {
@@ -15,6 +46,8 @@ header .logo {
     background-position: center;
     background-size: cover;
     margin: 30px 0;
+    animation: rotacion 10s normal infinite linear;
+    
     
 
 }
@@ -22,14 +55,28 @@ header .logo {
 header .menu {
     width: 100%;
     
+    
 }
 
 header .menu ul {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
-header div button {
+header .menu input{
+    display: none;
+    
+    
+}
+
+
+header .menu input:checked ~ ul{
+
+    display: flex;
+}
+
+header .menu label {
+    display: flex;
     width: 50px;
     padding: 5px ;
     font-size:32px;
@@ -37,7 +84,11 @@ header div button {
     background-color:var(--colorGrisClaro);
     border-radius: 5px;
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    
 }
 
 header .menu li {
@@ -50,11 +101,27 @@ header .menu li {
 
 }
 
+header .menu li:hover,.home__product__more:hover{
+    background-color: rgb(255, 123, 0) ;
+    transition: all 0.5s;
+}
+
 @media (min-width : 460px) {
     
 
+    header .menu input:checked ~ ul {
+        display: flex;
+    }
+
+    header .menu ul {
+        display: flex;
+    }
     header div button {
         display: none;  
+    }
+
+    header .menu label {
+        display: none;
     }
 
     header .menu ul {
